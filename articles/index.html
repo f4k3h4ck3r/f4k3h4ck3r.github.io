@@ -11,48 +11,49 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  text-align: center;
   background: linear-gradient(135deg, #fff5d6, #e6f7ff);
 }
 
 .box {
-  padding: 40px 15px;
-  max-width: 800px;
+  padding: 50px 20px;
+  max-width: 700px;
   margin: auto;
 }
 
 h1 {
-  text-align: center;
   color: #d14b7a;
-  font-size: 36px;
+  font-size: 38px;
+  margin-bottom: 35px;
 }
 
-.article {
-  background: white;
-  margin: 25px 0;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 5px 18px rgba(0,0,0,0.12);
-}
-
-.article h2 {
-  color: #d14b7a;
-}
-
-.article p {
-  color: #444;
-  font-size: 18px;
-  line-height: 1.8;
-}
-
-button {
+.story {
   display: block;
-  margin: 30px auto;
-  padding: 14px 25px;
-  border: 0;
-  border-radius: 30px;
+  width: 90%;
+  margin: 18px auto;
+  padding: 20px;
+  border-radius: 25px;
   background: #d14b7a;
   color: white;
-  font-size: 18px;
+  text-decoration: none;
+  font-size: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+.story:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.home {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 25px;
+  border-radius: 25px;
+  background: #555;
+  color: white;
+  text-decoration: none;
 }
 
 </style>
@@ -64,40 +65,17 @@ button {
 
 <h1>📝 စာများ</h1>
 
-<!-- စာအမှတ် (၁) -->
+<a class="story" href="story1.html">
+📖 ပထမဝတ္ထု
+</a>
 
-<div class="article">
+<a class="story" href="story2.html">
+📖 ဒုတိယဝတ္ထု
+</a>
 
-<h2>ပထမဝတ္ထုခေါင်းစဉ်</h2>
-
-<p>
-ဒီနေရာမှာ ပထမဝတ္ထုရဲ့ စာကို ရေးပါ။
-</p>
-
-<p>
-စာကြောင်းများများ ရေးချင်ရင် ဒီလို
-စာပိုဒ်အသစ်တွေ ထပ်ထည့်နိုင်ပါတယ်။
-</p>
-
-</div>
-
-
-<!-- စာအမှတ် (၂) -->
-
-<div class="article">
-
-<h2>ဒုတိယဝတ္ထုခေါင်းစဉ်</h2>
-
-<p>
-ဒီနေရာမှာ ဒုတိယဝတ္ထုကို ရေးပါ။
-</p>
-
-</div>
-
-
-<button onclick="location.href='../'">
+<a class="home" href="../">
 ပင်မစာမျက်နှာသို့ ပြန်ရန်
-</button>
+</a>
 
 </div>
 
