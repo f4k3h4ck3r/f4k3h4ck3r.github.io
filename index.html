@@ -3,19 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>f4k3 h4ck3r</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
+      min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: #111;
       color: white;
       text-align: center;
+      overflow-x: hidden;
+      background: #050505;
+    }
+
+    /* Animated background */
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 20% 30%, #182848, transparent 35%),
+        radial-gradient(circle at 80% 70%, #3a0f4f, transparent 35%),
+        #050505;
+      animation: moveBg 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes moveBg {
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.2);
+      }
     }
 
     .profile {
-      padding: 50px 20px 25px;
+      padding: 60px 20px 25px;
     }
 
     .avatar {
@@ -23,68 +52,90 @@
       height: 120px;
       margin: auto;
       border-radius: 50%;
-      background: #222;
       border: 3px solid white;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      background: #111;
+      font-size: 25px;
       font-weight: bold;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #ffffff;
+      }
+
+      to {
+        box-shadow: 0 0 35px #7aa7ff;
+      }
     }
 
     h1 {
+      font-size: 38px;
       margin: 20px 0 8px;
-      font-size: 36px;
     }
 
     .bio {
-      color: #bbb;
+      color: #ccc;
       font-size: 17px;
     }
 
     .box {
       max-width: 500px;
-      margin: 20px auto;
+      margin: 25px auto;
       padding: 25px;
-      background: #1d1d1d;
-      border-radius: 18px;
+      background: rgba(20,20,20,0.85);
+      border-radius: 20px;
+      border: 1px solid #444;
     }
 
     .button {
       display: block;
       margin: 15px 0;
-      padding: 14px;
-      background: white;
-      color: #111;
-      text-decoration: none;
+      padding: 15px;
       border-radius: 30px;
-      font-weight: bold;
+      text-decoration: none;
+      color: white;
+      background: #222;
+      border: 1px solid #555;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      background: #333;
     }
 
     .tiktok {
       background: #ff0050;
-      color: white;
+      border: none;
     }
 
     .footer {
-      margin-top: 40px;
-      padding: 20px;
+      padding: 30px;
       color: #777;
-      font-size: 14px;
     }
   </style>
 </head>
 
 <body>
 
+  <div class="background"></div>
+
   <div class="profile">
-    <div class="avatar">F4K3</div>
+
+    <div class="avatar">
+      F4K3
+    </div>
 
     <h1>f4k3 h4ck3r</h1>
 
     <p class="bio">
       Welcome to my personal website
     </p>
+
   </div>
 
   <div class="box">
@@ -96,17 +147,15 @@
       This is my personal space on the web.
     </p>
 
-    <!-- TikTok Link -->
     <a class="button tiktok"
-       href="https://www.tiktok.com/@YOUR_USERNAME"
+       href="#"
        target="_blank">
-      🎵 TikTok
+      TikTok
     </a>
 
-    <!-- Contact -->
     <a class="button"
-       href="mailto:YOUR_EMAIL@example.com">
-      ✉ Contact Me
+       href="#">
+      Contact Me
     </a>
 
   </div>
