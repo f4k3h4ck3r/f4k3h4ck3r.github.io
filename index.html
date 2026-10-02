@@ -1,9 +1,29 @@
-<div class="box">
-  <h2>အဖွား နဲ့မြေး</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>အဖွားနဲ့မြေး</title>
+</head>
 
-  <video controls playsinline
-         style="width:100%; max-width:700px; border-radius:15px;">
+<body>
+
+<h1>👵 အဖွား ❤️ မြေး 👧</h1>
+
+<p>ကျွန်မတို့ရဲ့ အမှတ်တရ</p>
+
+<button onclick="showVideo()">▶️ Video ကြည့်ရန်</button>
+
+<div id="videoBox" style="display:none; margin-top:20px;">
+  <video width="100%" controls>
     <source src="VID_20230505_182738.mp4" type="video/mp4">
-    Your browser does not support video.
   </video>
 </div>
+
+<script>
+function showVideo() {
+  document.getElementById("videoBox").style.display = "block";
+}
+</script>
+
+</body>
+</html>
