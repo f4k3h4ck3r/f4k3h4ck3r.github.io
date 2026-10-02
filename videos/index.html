@@ -11,37 +11,41 @@ body {
   margin: 0;
   text-align: center;
   font-family: sans-serif;
-  background: linear-gradient(135deg, #ffe6f0, #e6f7ff);
+  background: linear-gradient(135deg, #e6f7ff, #ffe6f0);
 }
 
 .box {
-  padding: 60px 20px;
+  padding: 40px 15px;
 }
 
 h1 {
-  color: #d14b7a;
+  color: #4b5fd1;
   font-size: 36px;
 }
 
-p {
+.video-box {
+  margin: 25px auto;
+  max-width: 700px;
+}
+
+video {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.name {
+  font-size: 18px;
   color: #555;
-  font-size: 19px;
+  margin: 10px;
 }
 
 button {
   padding: 14px 25px;
   border: 0;
   border-radius: 30px;
-  background: #d14b7a;
+  background: #4b5fd1;
   color: white;
   font-size: 18px;
-}
-
-video {
-  width: 95%;
-  max-width: 700px;
-  margin-top: 25px;
-  border-radius: 15px;
 }
 </style>
 </head>
@@ -54,17 +58,49 @@ video {
 
 <p>F4K3 H4CK3R</p>
 
-<video controls>
-<source src=" Video.Guru_20261002_135702817.mp4 " type="video/mp4">
-</video>
+<div id="videos">
+ဗီဒီယိုများကို ရှာနေပါတယ်...
+</div>
 
-<br><br>
+<br>
 
 <button onclick="location.href='../'">
 ပင်မစာမျက်နှာသို့ ပြန်ရန်
 </button>
 
 </div>
+
+<script>
+const user = "f4k3h4ck3r";
+const repo = "f4k3h4ck3r.github.io";
+const folder = "videos";
+
+fetch(`https://api.github.com/repos/${user}/${repo}/contents/${folder}`)
+.then(response => response.json())
+.then(files => {
+
+  const container = document.getElementById("videos");
+  container.innerHTML = "";
+
+  files
+    .filter(file => file.name.toLowerCase().endsWith(".mp4"))
+    .forEach(file => {
+
+      const box = document.createElement("div");
+      box.className = "video-box";
+
+      box.innerHTML = `
+        <div class="name">${file.name}</div>
+        <video controls>
+          <source src="${file.download_url}" type="video/mp4">
+        </video>
+      `;
+
+      container.appendChild(box);
+    });
+
+});
+</script>
 
 </body>
 </html>
