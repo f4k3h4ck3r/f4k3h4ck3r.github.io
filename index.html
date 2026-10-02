@@ -1,22 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="my">
 <head>
-  <meta charset="UTF-8">
-  <title>အဖွားနဲ့မြေး</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>အဖွားနဲ့မြေး</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe6f0, #fff7e6);
+  min-height: 100vh;
+}
+
+.container {
+  padding: 60px 20px;
+}
+
+h1 {
+  font-size: 38px;
+  color: #d14b7a;
+}
+
+p {
+  font-size: 20px;
+  color: #555;
+}
+
+button {
+  margin-top: 25px;
+  padding: 15px 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  background: #d14b7a;
+  color: white;
+  cursor: pointer;
+}
+
+#videoBox {
+  display: none;
+  margin-top: 35px;
+}
+
+video {
+  width: 95%;
+  max-width: 700px;
+  border-radius: 15px;
+}
+</style>
 </head>
 
 <body>
 
+<div class="container">
+
 <h1>👵 အဖွား ❤️ မြေး 👧</h1>
 
-<p>ကျွန်မတို့ရဲ့ အမှတ်တရ</p>
+<p>အမှတ်တရလေးတွေကို ပြန်လည်ကြည့်ရှုရန်</p>
 
-<button onclick="showVideo()">▶️ Video ကြည့်ရန်</button>
+<button onclick="showVideo()">▶ အဖွားနဲ့မြေး ကြည့်ရန်</button>
 
-<div id="videoBox" style="display:none; margin-top:20px;">
-  <video width="100%" controls>
-    <source src="VID_20230505_182738.mp4" type="video/mp4">
-  </video>
+<div id="videoBox">
+<video controls>
+<source src="VID_20230505_182738.mp4" type="video/mp4">
+</video>
+</div>
+
 </div>
 
 <script>
