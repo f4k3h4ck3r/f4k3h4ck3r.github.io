@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>f4k3 h4ck3r</title>
 
 <style>
@@ -14,37 +15,26 @@ body {
 }
 
 .box {
-  padding: 70px 20px;
+  padding: 60px 20px;
 }
 
 h1 {
   color: #d14b7a;
-  font-size: 38px;
-}
-
-p {
-  color: #555;
-  font-size: 19px;
+  font-size: 40px;
+  margin-bottom: 45px;
 }
 
 button {
-  padding: 15px 28px;
+  display: block;
+  width: 90%;
+  max-width: 400px;
+  margin: 18px auto;
+  padding: 18px;
   border: 0;
   border-radius: 30px;
   background: #d14b7a;
   color: white;
-  font-size: 18px;
-}
-
-#videoBox {
-  display: none;
-  margin-top: 30px;
-}
-
-video {
-  width: 95%;
-  max-width: 700px;
-  border-radius: 15px;
+  font-size: 20px;
 }
 </style>
 </head>
@@ -53,27 +43,25 @@ video {
 
 <div class="box">
 
-<h1>👵 အဖွား ❤️ မြေး 👧</h1>
+<h1>F4K3 H4CK3R</h1>
 
-<p>အမှတ်တရလေးများ</p>
-
-<button onclick="showVideo()">
-အဖွားနဲ့မြေး ကြည့်ရန်
+<button onclick="location.href='technology/'">
+၁။ နည်းပညာ
 </button>
 
-<div id="videoBox">
-<video controls>
-<source src="VID_20230505_182738.mp4" type="video/mp4">
-</video>
-</div>
+<button onclick="location.href='videos/'">
+၂။ ဗီဒီယိုများ
+</button>
+
+<button onclick="location.href='articles/'">
+၃။ စာများ
+</button>
+
+<button onclick="location.href='photos/'">
+၄။ ဓာတ်ပုံများ
+</button>
 
 </div>
-
-<script>
-function showVideo() {
-  document.getElementById("videoBox").style.display = "block";
-}
-</script>
 
 </body>
 </html>
