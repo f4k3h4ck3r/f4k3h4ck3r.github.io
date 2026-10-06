@@ -15,16 +15,16 @@ body {
 }
 
 .box {
-  padding: 40px 15px;
+  padding: 30px 15px;
 }
 
 h1 {
   color: #4b5fd1;
-  font-size: 36px;
+  font-size: 34px;
 }
 
 .video-box {
-  margin: 25px auto;
+  margin: 30px auto;
   max-width: 700px;
 }
 
@@ -34,9 +34,10 @@ video {
 }
 
 .name {
-  font-size: 18px;
+  font-size: 17px;
   color: #555;
   margin: 10px;
+  word-break: break-all;
 }
 
 button {
@@ -58,49 +59,58 @@ button {
 
 <p>F4K3 H4CK3R</p>
 
-<div id="videos">
-ဗီဒီယိုများကို ရှာနေပါတယ်...
+
+<div class="video-box">
+  <div class="name">
+    Video.Guru_20261003_113104347.mp4
+  </div>
+
+  <video controls playsinline>
+    <source src="./Video.Guru_20261003_113104347.mp4" type="video/mp4">
+  </video>
 </div>
 
-<br>
+
+<div class="video-box">
+  <div class="name">
+    Video.Guru_20261003_085321932.mp4
+  </div>
+
+  <video controls playsinline>
+    <source src="./Video.Guru_20261003_085321932.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+<div class="video-box">
+  <div class="name">
+    Video.Guru_20261002_135702817.mp4
+  </div>
+
+  <video controls playsinline>
+    <source src="./Video.Guru_20261002_135702817.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+<div class="video-box">
+  <div class="name">
+    VID_20230505_182738.mp4
+  </div>
+
+  <video controls playsinline>
+    <source src="./VID_20230505_182738.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+<br><br>
 
 <button onclick="location.href='../'">
 ပင်မစာမျက်နှာသို့ ပြန်ရန်
 </button>
 
 </div>
-
-<script>
-const user = "f4k3h4ck3r";
-const repo = "f4k3h4ck3r.github.io";
-const folder = "videos";
-
-fetch(`https://api.github.com/repos/${user}/${repo}/contents/${folder}`)
-.then(response => response.json())
-.then(files => {
-
-  const container = document.getElementById("videos");
-  container.innerHTML = "";
-
-  files
-    .filter(file => file.name.toLowerCase().endsWith(".mp4"))
-    .forEach(file => {
-
-      const box = document.createElement("div");
-      box.className = "video-box";
-
-      box.innerHTML = `
-        <div class="name">${file.name}</div>
-        <video controls>
-          <source src="${file.download_url}" type="video/mp4">
-        </video>
-      `;
-
-      container.appendChild(box);
-    });
-
-});
-</script>
 
 </body>
 </html>
