@@ -252,6 +252,15 @@ function firework() {
   const color =
     colors[Math.floor(Math.random() * colors.length)];
 
+  // ပေါက်ကွဲမယ့်နေရာမှာ အလင်းတောက်ခြင်း
+  ctx.beginPath();
+  ctx.arc(x, y, 5, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.shadowBlur = 35;
+  ctx.shadowColor = color;
+  ctx.fill();
+  ctx.shadowBlur = 0;
+
   for (let i = 0; i < 60; i++) {
 
     const angle =
