@@ -12,55 +12,70 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
-  text-align: center;
-  font-family: sans-serif;
   background: #000;
   color: #00ff41;
+  font-family: sans-serif;
+  text-align: center;
+  min-height: 100vh;
 }
 
 #matrix {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
   pointer-events: none;
 }
 
-.box {
+.content {
   position: relative;
   z-index: 1;
-  padding: 60px 15px;
+  padding: 25px 15px 40px;
+  min-height: 100vh;
+  background: rgba(0,0,0,0.18);
+}
+
+.cover {
+  width: 100%;
+  max-width: 560px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #00ff41;
+  box-shadow: 0 0 18px #00ff41;
 }
 
 h1 {
-  color: #00ff41;
-  font-size: 36px;
-  text-shadow: 0 0 12px #00ff41;
+  color: #ff4d91;
+  font-size: 32px;
+  text-shadow: 0 0 12px #ff4d91;
+  margin-top: 25px;
 }
 
 p {
-  color: #b7ffbf;
-  font-size: 17px;
+  color: white;
+  font-size: 16px;
 }
 
-button {
+.room {
   display: block;
-  width: 90%;
-  max-width: 400px;
+  width: 95%;
+  max-width: 390px;
   margin: 18px auto;
-  padding: 17px;
-  border: 1px solid #00ff41;
-  border-radius: 12px;
-  background: rgba(0, 20, 0, 0.88);
+  padding: 18px 10px;
+  border: 2px solid #00ff41;
+  border-radius: 35px;
+  background: rgba(0, 25, 5, 0.94);
   color: #00ff41;
   font-size: 18px;
-  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 10px #00ff41;
 }
 
-button:active {
-  background: #064d16;
+.room:active {
+  background: #07551a;
 }
 </style>
 </head>
@@ -69,25 +84,33 @@ button:active {
 
 <canvas id="matrix"></canvas>
 
-<div class="box">
+<div class="content">
+
+  <img class="cover"
+       src="IMG_20260919_214213.webp"
+       alt="F4K3 H4CK3R Cover">
+
   <h1>F4K3 H4CK3R</h1>
-  <p>THINK • CODE • CREATE</p>
+  <p>✨ Welcome to my website ✨</p>
 
-  <button onclick="location.href='technology/'">
-    ၁။ 💻 နည်းပညာ
-  </button>
+  <a class="room" href="technology/">
+    💻 ၁။ နည်းပညာ
+  </a>
 
-  <button onclick="location.href='videos/'">
-    ၂။ 🎬 ဗီဒီယိုများ
-  </button>
+  <a class="room" href="videos/">
+    🎬 ၂။ ဗီဒီယိုများ
+  </a>
 
-  <button onclick="location.href='articles/'">
-    ၃။ 📝 စာများ
-  </button>
+  <a class="room" href="articles/">
+    📝 ၃။ စာများ
+  </a>
 
-  <button onclick="location.href='photos/'">
-    ၄။ 📷 ဓာတ်ပုံများ
-  </button>
+  <a class="room" href="photos/">
+    📷 ၄။ ဓာတ်ပုံများ
+  </a>
+
+  <p>© F4K3 H4CK3R</p>
+
 </div>
 
 <script>
@@ -95,37 +118,36 @@ const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
 const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const size = 16;
+const fontSize = 16;
 let drops = [];
 
-function resize() {
+function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  drops = Array(
-    Math.ceil(canvas.width / size)
-  ).fill(1);
+  const columns = Math.ceil(canvas.width / fontSize);
+  drops = Array(columns).fill(1);
 }
 
-window.addEventListener("resize", resize);
-resize();
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
 
-function draw() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.10)";
+function drawMatrix() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.12)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = "#00ff41";
-  ctx.font = size + "px monospace";
+  ctx.font = fontSize + "px monospace";
 
   for (let i = 0; i < drops.length; i++) {
-    const char = chars[
+    const char = chars.charAt(
       Math.floor(Math.random() * chars.length)
-    ];
+    );
 
-    ctx.fillText(char, i * size, drops[i] * size);
+    ctx.fillText(char, i * fontSize, drops[i] * fontSize);
 
     if (
-      drops[i] * size > canvas.height &&
+      drops[i] * fontSize > canvas.height &&
       Math.random() > 0.975
     ) {
       drops[i] = 0;
@@ -134,10 +156,10 @@ function draw() {
     drops[i]++;
   }
 
-  requestAnimationFrame(draw);
+  requestAnimationFrame(drawMatrix);
 }
 
-draw();
+drawMatrix();
 </script>
 
 </body>
