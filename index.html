@@ -178,12 +178,59 @@ button:active {
   pointer-events: none;
   z-index: 1;
 }
-
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #000;
+  pointer-events: none;
+}
 </style>
 </head>
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
 
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオ";
+const size = 16;
+let drops = [];
+
+function reset() {
+  drops = Array(Math.ceil(canvas.width / size)).fill(1);
+}
+reset();
+
+function draw() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#00ff41";
+  ctx.font = size + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const char = chars[Math.floor(Math.random() * chars.length)];
+    ctx.fillText(char, i * size, drops[i] * size);
+
+    if (drops[i] * size > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+    drops[i]++;
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
 <body>
-
+<canvas id="matrix"></canvas>
 <canvas id="fireworks"></canvas>
 
 <div class="box">
